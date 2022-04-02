@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&family=Ubuntu:ital@0;1&family=Varela+Round&display=swap');
+
+body {
+    background-image: url(bg.webp);
+    /* background-color: #f5f5f5; */
+    background-size: cover;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    font-family: 'Ubuntu', sans-serif;
+
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+    height: 50px;
+    background-color: black;
+    color: antiquewhite;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    background-color: bisque;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+li{
+    padding: 10px;
+}
+.container{
+    height: 70vh;
+    background-color: black;
+    color: antiquewhite;
+    font-family: 'Varela -Round', sans-serif;
+    width: 70vw;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 20px;
+    background-image: url("bg.webp");
+    background-image: url("musix.webp");
+    background-image: url("music.webp");
+    background-size: cover;
+    border-color: antiquewhite;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.taskbar{
+    position:sticky;
+    height: 130px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:antiquewhite;
+    flex-direction: column;
+}
+
+#progressbar{
+    width: 70vw;
+    cursor: pointer;
+}
+
+.icons{
+    margin-top: 10px;
+}
+
+i {
+    margin: 0px 10px 0px 10px;
+}
+
+.icons :hover {
+    cursor: pointer;
+}
+
+.songItem {
+    display: flex;
+    justify-content: space-around;
+    width:30vw;
+    background-color: black;
+    border-radius: 50px;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.songItem img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: antiquewhite;
+    border-width: 2px;
+    border-style: solid;
+}
+
+/* .timestamp {
+    margin: 0px 10px;
+} */
+
+.songlist {
+    margin: 10px;
+}
+
+.songlist i {
+    cursor: pointer;
+}
+
+.songinfo {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Varela -Round', sans-serif;
+}
+
+#gif {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.timestamp {
+    display: flex;
+    justify-content: center;
+}
