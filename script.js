@@ -8,20 +8,16 @@ let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songtits'));
 
 let songs =[
-    {songName: "Rumbing: Attack of Titan", filepath: "songs/1.mp3",coverpath: "rumbling.jpg"},
-    {songName: "Amalee FMAB",filepath:"songs/2.mp3",coverpath: "rumbling.jpg"},
-    {songName: "Kira :Death Note",filepath:"songs/3.mp3",coverpath: "rumbling.jpg"},
-    {songName: "Loki TVA",filepath:"songs/4.mp3",coverpath: "rumbling.jpg"},
-    {songName: "GOT",filepath:"songs/5.mp3",coverpath: "rumbling.jpg"},
+    {songName: "Rumbing: Attack of Titan", filepath: "songs/1.mp3",coverpath: "covers/1.jpg"},
+    {songName: "Amalee FMAB",filepath:"songs/2.mp3",coverpath: "covers/2.jpg"},
+    {songName: "Kira :Death Note",filepath:"songs/3.mp3",coverpath: "covers/3.jpg"},
+    {songName: "Kira :Death Note",filepath:"songs/4.mp3",coverpath: "covers/4.jpg"},
+    {songName: "GOT",filepath:"songs/5.mp3",coverpath: "covers/5.jpg"},
 ]
 // songItems.forEach((element,i)=>{
-//     // console.log(element,i); 
-//     // element.getElementByTagName("img")[0] = src.song[i].coverpath; 
-//     element.getElementByClassName("songtits").innerText = songs[i].songName;
-// })
-// songItems.forEach((element, i)=>{ 
-//     element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
-//     element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
+//     console.log(element,i); 
+//     element.getElementByTagName("img")[0].src = songs[i].coverpath; 
+//     element.getElementByClassName("songtits")[0].innerText = songs[i].songName;
 // })
 document.body.onkeyup = function(e) {
     if (e.code == "Space"){

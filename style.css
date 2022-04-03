@@ -90,6 +90,8 @@ i {
     border-radius: 50px;
     align-items: center;
     font-weight: bolder;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .songItem img {
@@ -105,13 +107,6 @@ i {
     margin: 0px 10px;
 } */
 
-.songlist {
-    margin: 10px;
-}
-
-.songlist i {
-    cursor: pointer;
-}
 
 .songinfo {
     display: flex;
@@ -127,4 +122,13 @@ i {
 .timestamp {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width:600px){
+    .container {
+        width:85vw;
+    }
+    .songItem {
+        width: 80vw;
+    }
 }
