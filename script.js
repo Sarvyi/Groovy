@@ -1,21 +1,27 @@
 console.log("Welcome to Sarvy Groove");
 let songIndex = 0;
-let audioElement = new Audio('songs/rumbing.mp3');
+let audioElement = new Audio('songs/1.mp3');
 let masterPlay = document.getElementById('masterPlay');
 let progressbar = document.getElementById('progressbar');
+let gif = document.getElementById('gif');
+let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songtits'));
 
 let songs =[
-    {songName: "Rumbing: Attack of Titan",coverpath: "rumbing.jpg", filepath: "songs/rumbing.mp3"},
-    {songName: "Amalee FMAB",coverpath: "rumbing.jpg",filepath:"songs/amalee.mp3"},
-    {songName: "Kira :Death Note",coverpath: "rumbing.jpg",filepath:"songs/L2.mp3"},
-    {songName: "Loki TVA",coverpath: "rumbing.jpg",filepath:"songs/TVA.mp3"},
-    {songName: "GOT",coverpath: "rumbing.jpg",filepath:"songs/GOT.mp3"},
+    {songName: "Rumbing: Attack of Titan", filepath: "songs/1.mp3",coverpath: "rumbling.jpg"},
+    {songName: "Amalee FMAB",filepath:"songs/2.mp3",coverpath: "rumbling.jpg"},
+    {songName: "Kira :Death Note",filepath:"songs/3.mp3",coverpath: "rumbling.jpg"},
+    {songName: "Loki TVA",filepath:"songs/4.mp3",coverpath: "rumbling.jpg"},
+    {songName: "GOT",filepath:"songs/5.mp3",coverpath: "rumbling.jpg"},
 ]
-// songs.forEach((element,i)=>{
-//     console.log(element,i);
+// songItems.forEach((element,i)=>{
+//     // console.log(element,i); 
 //     // element.getElementByTagName("img")[0] = src.song[i].coverpath; 
-//     element.getElementByClassName("songtits")[0].innerText = songs[i].songName;
+//     element.getElementByClassName("songtits").innerText = songs[i].songName;
+// })
+// songItems.forEach((element, i)=>{ 
+//     element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
+//     element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
 // })
 document.body.onkeyup = function(e) {
     if (e.code == "Space"){
@@ -27,12 +33,13 @@ masterPlay.addEventListener('click',()=>{
         audioElement.play();
         masterPlay.classList.remove('fa-play');
         masterPlay.classList.add('fa-pause');
-        gif.style.opacity = "1";
+        gif.style.opacity = 1;
     }
     else{
         audioElement.pause();
         masterPlay.classList.remove('fa-pause');
         masterPlay.classList.add('fa-play');
+        gif.style.opacity = 0;
     }
 })
 
@@ -43,4 +50,60 @@ audioElement.addEventListener('timeupdate',()=>{
 
 progressbar.addEventListener('change',()=>{
     audioElement.currentTime = audioElement.duration * (progressbar.value/100);
+})
+
+const makeAllPlays = ()=>{
+    Array.from(document.getElementsByClassName('songItemplay')).forEach((element)=>{
+        element.classList.remove('fa-pause');
+        element.classList.add('fa-play');
+    })
+}
+
+Array.from(document.getElementsByClassName('songItemplay')).forEach((element)=>{
+    element.addEventListener('click', (e)=>{ 
+        makeAllPlays();
+        songIndex = parseInt(e.target.id);
+        e.target.classList.remove('fa-play');
+        e.target.classList.add('fa-pause');
+        audioElement.src = `songs/${songIndex+1}.mp3`;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        gif.style.opacity = 1;
+        masterPlay.classList.remove('fa-play');
+        masterPlay.classList.add('fa-pause');
+    })
+})
+
+
+
+document.getElementById('next').addEventListener('click', ()=>{
+    if(songIndex>=4){
+        songIndex = 0
+    }
+    else{
+        songIndex += 1;
+    }
+    audioElement.src = `songs/${songIndex+1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play');
+    masterPlay.classList.add('fa-pause');
+
+})
+
+document.getElementById('previous').addEventListener('click', ()=>{
+    if(songIndex<=0){
+        songIndex = 0
+    }
+    else{
+        songIndex -= 1;
+    }
+    audioElement.src = `songs/${songIndex+1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play');
+    masterPlay.classList.add('fa-pause');
 })
